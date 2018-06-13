@@ -38,7 +38,7 @@ class Graf():
 
     def kwadrat_grafu(self, g, poczatek):# zmodyfikowany tylko dla wierzcholka poczadkowego
         graf_kwadrat = dd(list)
-        for w in g:#g zeby graf mogl sie zmienic
+        for w in g:
             for val in g[w]:
                 graf_kwadrat[w].append(val)# najpierw kopia grafu
         for wierzcholek in g[poczatek]:# sasiedzi
@@ -52,16 +52,16 @@ class Graf():
         lista_odwiedzonych = []
         for wierzcholek in self.graf_uporzadkowany:
             if wierzcholek != poczatek:
-                sciezki_do_wierzcholkow[wierzcholek] = 0 # przypisanie na poczadku 0 wszystkim sciezkom
+                sciezki_do_wierzcholkow[wierzcholek] = 0
         graf = self.graf_uporzadkowany
-        while len(lista_odwiedzonych) + 1 != len(self.graf_uporzadkowany.keys()):# wszystkie wierzcholki musza miec sciezke
+        while len(lista_odwiedzonych) + 1 != len(self.graf_uporzadkowany.keys()):
             for w in sciezki_do_wierzcholkow:
                 if w not in lista_odwiedzonych:
                     sciezki_do_wierzcholkow[w] += 1# zwiekasza o jeden sciezke do nieodwiedzonych jescze wierzcholkow
             for w in graf[poczatek]:
                 if w not in lista_odwiedzonych:
                     lista_odwiedzonych.append(w)
-            graf = self.kwadrat_grafu(graf, poczatek)# zmiana grafu na jego kwadrat dla poczadkowego w
+            graf = self.kwadrat_grafu(graf, poczatek)# zmiana grafu na jedo kwadrat
         return sciezki_do_wierzcholkow
 
     def najwieksza_sciezka(self, sciezki):

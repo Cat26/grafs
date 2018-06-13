@@ -32,7 +32,7 @@ class Graf():
         for wierzcholek in self.graf_uporzadkowany:
             for w1 in self.graf_uporzadkowany[wierzcholek]:# sasiedzi
                 for w2 in self.graf_uporzadkowany[w1]: # siesiedzi sasiadow
-                    if w2 not in self.graf_uporzadkowany[wierzcholek] and w2 != wierzcholek: #nie dublujemy krawedzi
+                    if w2 not in graf_kwadrat[wierzcholek] and w2 != wierzcholek: #nie dublujemy krawedzi
                         graf_kwadrat[wierzcholek].append(w2)
         return graf_kwadrat
 
