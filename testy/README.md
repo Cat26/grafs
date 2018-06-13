@@ -1,47 +1,80 @@
 # Algorytmiczna teoria grafów 2017-2018 (Studia niestacjonarne)
-## Laboratorium 5 (Pakiet NetworkX)
+## Laboratorium 4 (Podstawowe produkty grafowe)
 
--------------
+**Zadanie 1** (\*8 pkt)
 
-**Zadania mają być zapisane w plikach podanych w zadaniu !!!**
+Napisz program, który dla dowolnego grafu **nieskierowanego** wypisze jego kolorowanie metodą LF lub SL. 
 
--------------
+```
+WEJŚCIE: Graf G podany jako lista krawędzi, macierz sąsiedztwa lub lista sąsiedztwa
+WYJŚCIE: Kolorowanie metodą LF oraz SL wraz z podaniem liczby chromatycznej tego grafu.
+Przykładowe wywołania programu: 
+Dla danej macierzy sąsiedztwa (oraz jego odpowiednika w postaci list krawędzi):
+0 1 0 0 0
+1 0 1 0 0
+0 1 0 1 0 = 1 2 2 3 3 4 4 5 
+0 0 1 0 1
+0 0 0 1 0
+Kolorowanie metodą LF: [0 1 0 1 0] (liczba chromatyczna = 2)
+Kolorowanie metodą SL: [1 0 1 0 1] (liczba chromatyczna = 2)
 
-**Zadanie 1** (1 pkt)
+Natomiast dla grafu oraz jego listy sąsiedztwa: 
+1 2
+2 3
+3 4
+4 5
+5
+Kolorowanie metodą LF: [0 1 0 1 0] (liczba chromatyczna = 2)
+Kolorowanie metodą SL: [1 0 1 0 1] (liczba chromatyczna = 2)
+```
 
-Za pomocą pakietu **NetworkX** wczytaj poniższy graf, a następnie wypisz za pomocą odpowiednich poleceń następujące informacje: 
+**UWAGI:** 
 
-- Stopień każdego wierzchołka grafu
-- Liczba wierzchołków i krawędzi
-- Liczba liści
-- Liczba wierzchołków stopnia 3
+- Procedura sortująca powinna być napisana "od zera". Nie będzie akceptowane rozwiązanie za pomocą metody **sort()**.
+- Algorytm LF i SL są algorytmami aproksymacyjnymi. Istnieją grafy, dla których kolorowanie tą metodą **zawsze** się pomyli!!! 
 
+- 8 pkt - za napisanie programu, który w argumencie wywołania wypisze kolorowanie lub liczbę chromatyczną grafu. 
+- 6 pkt - za napisanie programu, który jednocześnie wypisze kolorowanie wierzchołków oraz liczbę chromatyczną grafu.
 
-![przyklad](https://github.com/mmiotk/AlgorytmicznaTeoriaGrafowZaoLab5/blob/master/grafLab5.png)
+Program wczytuje graf ze standardowego wejścia **(STDIN)**. 
+Wierzchołki numerowane są od **jedynki**.
 
-Zadanie zapisz w pliku **IntroductionNetworkX.py**.
+**TERMINY:**
+- 26.05.2018 (100 %)
+- 09.06.2018 (75 %)
+- ??.06.2018 (50 %)
+--------------
 
-------------------------
+**Dane testowe do zadań 2-5 są w pliku DaneLab4.zip**
 
-**Zadanie 2** (1 pkt) 
+----------------
 
-Za pomocą pakietu **NetworkX** napisz program, który dla wczytanego grafu (dane grafu mają być w kodzie programu), sprawdzi czy graf jest drzewem, grafem pełnym, grafem dwudzielnym czy cyklem. Skorzystaj z gotowych funkcji, które znajdują się w dokumentacji pakietu **NetworkX**. 
+**Zadanie 2** (1 pkt)
 
-Zadanie zapisz w pliku **CheckGraph.py**.
+Dopełnieniem grafu prostego <a href="https://www.codecogs.com/eqnedit.php?latex=G=(V_G,E_G)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?G=(V_G,E_G)" title="G=(V_G,E_G)" /></a> nazywamy graf <a href="https://www.codecogs.com/eqnedit.php?latex=\overline{G}&space;=&space;(V_G,E_{\overline{G}})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\overline{G}&space;=&space;(V_G,E_{\overline{G}})" title="\overline{G} = (V_G,E_{\overline{G}})" /></a>, w którym dwa wierzchołki są sąsiednie wtedy i tylko wtedy, gdy nie są sąsiednie w grafie G.
 
----------------------
+Zaimplementuj metodę, która dla dowolnego grafu nieskierowanego będzie tworzyło jego dopełnienie.
 
-**Zadanie 3** (1 pkt) 
+----------------
 
-Napisz program, który dla dowolnego grafu wczytanego w kodzie programu, narysuje ten graf oraz zapisze do odpowiednich plików macierz sąsiedztwa oraz listę sąsiedztwa tego grafu. Skorzystaj z gotowych funkcji, które znajdują się w dokumentacji pakietu **NetworkX**. 
+**Zadanie 3** (2 pkt) 
 
-Zadanie zapisz w pliku **DrawSaveGraph.py**. 
+Grafem krawędziowym <a href="https://www.codecogs.com/eqnedit.php?latex=L(G)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?L(G)" title="L(G)" /></a> grafu prostego <a href="https://www.codecogs.com/eqnedit.php?latex=G=(V_G,E_G)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?G=(V_G,E_G)" title="G=(V_G,E_G)" /></a> nazywamy graf, którego wierzchołki stoją we wzajemnie jednoznacznej odpowiedniości z krawędziami grafu G i taki, że jego wierzchołki są sąsiednie wtedy i tylko wtedy, gdy odpowiadające im krawędzie grafu są sąsiednie. 
 
-----------------------
+Zaimplementuj metodę, która dla dowolnego grafu prostego G, będzie tworzyło jego graf krawędziowy.
 
-**Zadanie 4** (1 pkt)
+**Zadanie 4** (1 pkt) 
 
-Napisz program, który będzie wczytywał graf z pliku w postaci macierzy sąsiedztwa. Następnie program ma wygenerować oraz narysować dopełnienie oraz graf krawędziowy podanego grafu z pliku. Skorzystaj z gotowych funkcji, które znajdują się w dokumentacji pakietu **NetworkX**. 
+Kwadratem grafu <a href="https://www.codecogs.com/eqnedit.php?latex=G=(V_G,E_G)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?G=(V_G,E_G)" title="G=(V_G,E_G)" /></a> nazywamy graf <a href="https://www.codecogs.com/eqnedit.php?latex=G^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?G^2" title="G^2" /></a>, taki, że dla wierzchołków <a href="https://www.codecogs.com/eqnedit.php?latex=u,v&space;\in&space;V_G" target="_blank"><img src="https://latex.codecogs.com/gif.latex?u,v&space;\in&space;V_G" title="u,v \in V_G" /></a> krawędź <a href="https://www.codecogs.com/eqnedit.php?latex=uv&space;\in&space;E_G^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?uv&space;\in&space;E_G^2" title="uv \in E_G^2" /></a> wtedy i tylko wtedy, gdy graf G zawiera ścieżkę między u i v złożoną z co najwyżej dwóch krawędzi. 
 
-Zadanie zapisz w pliku **ReadGraph.py**, a dane testowe w folderze **graphTests**.
+Zaimplementuj metodę, która dla dowolnego grafu nieskierowanego będzie tworzyło jego potęgę grafu. 
 
+(+1 pkt) dla działającej metody dla grafu skierowanego.
+
+**Wskazówka:** Wystarczy podnieść do kwadratu macierz sąsiedztwa grafu G.
+
+**Zadanie 5** (Dodatkowe na 2 pkt)
+
+Średnicą grafu <a href="https://www.codecogs.com/eqnedit.php?latex=G=(V_G,E_G)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?G=(V_G,E_G)" title="G=(V_G,E_G)" /></a> nazywamy najdłuższą v-u ścieżkę biegnącą w grafie G. Zaimplementuj metodę, która będzie obliczać średnicę dla danego grafu G. 
+
+**Wskazówki:** Skorzystaj z algorytmu Dijkstry lub z operacji potęgi grafu.
